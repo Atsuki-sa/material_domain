@@ -1,0 +1,142 @@
+the class definition on the material domain(ver.1.0) 20170503
+
+NEのタグ名
+大きく分けると「Material」と「Value」の二つ
+
+・Material
+  -[物質][数値][物質][数値]...のような構造を取る
+  -Bi, Te, Pb, Si, Geが含まれていれば、該当する可能性が高い。
+  -Materialをとることは簡単だと思われるが、タグごとに取るのは、難しいかもしれない。
+Material_Te/Bi:テルル-ビスマス化合物系
+  -例:主としてTe, Beが含まれる
+  -出現例:AgSbSexTe2-x(x=0-0.04), SnBiTe, (BiAgSeS0.97C10.03)0.5, Cu1-xInTe2, Ag(Sb0.97Sn0.03)Te2
+  -正規表現:"Bi", "Te"
+  -備考:Te, Be以外には何が含まれるのか？
+Material_Oxide:酸素物系
+  -例:SrTiO3, NaCo2, Ca3Co4O9, ZnO
+  -出現例:In4-xGaxSn3O12, Ca3-xBixCo4O9+δ(x=0.5), NaXCo2O4
+  -正規表現
+  -備考:
+Material_Clathrate:包接化合物
+  -例:(CH4)8(H2O)46
+    -I型からIX型まで9種類がある
+    -A8X16Ge30(A=Sr, Ba, Eu; X=Al, GA, In)など
+  -出現例:Ba8Ga16-xA1xSn30(0&leq;x&leq;12)
+  -正規表現:.*?
+  -備考:化合物の式から構造が分かるのかよくわからない
+Material_Skutterudite:スクッテルダイト系化合物
+  -例:CoSb3, NiAs3, CoAs3など。TX3(T = Co, Rh, Ir; X = P, As, Sb)の構造を取る
+  -TX3の隙間に希土類(rare elements)やアルカリ土類金属がほぼ100%入ったAT4X12は充填スクッテルダイト
+  -と呼ばれる。この場合はTがFe, Ru, Osに換わる。
+  -出現例:5Ni1.S5b12, CeFe4Sb12, Ba0.L08a0.05Yb0.04, CeyMXCo4S-xb12
+  -正規表現
+  -備考:
+Material_Heusler-based_phase:ホイスラーに基づく位相
+  -例:
+  -出現例:Fe2V0.9W0.1A1
+  -正規表現
+  -備考:出現例が上記のみのため、分類が難しい。
+Material_Other:その他、原子記号+数字で描かれているもの
+  -例:
+  -出現例:In4PbχSnySe3, Cu12-xNiXSb4S13
+  -正規表現:
+  -備考:上記のクラスに分類されない物質をこれに分類する
+
+  以下、熱電変換材料を取る場合
+(Material_Te:テルル化合物系)
+  -例:Bi2Te3, PbTe, AgSbTe2/GeTe, Bi2Te3/Sb2Te3など
+  -出現例:
+  -正規表現:"Bi.*?Te.*?"
+  -備考:
+(Material_metai_Oxide:金属酸素物系)
+  -例:NaCo2O4,CaCoO3, SrTiO3/SrTiO3:Nbなど
+  -出現例:
+  -正規表現
+  -備考:
+(Material_silicides:シリコン化合物)
+  -例:SiGe, β-FeSi2, Ba8Si48, Mg2Si, MnSi1.73など
+  -出現例:
+  -正規表現:".*?Si.*?"
+  -備考:持っている論文には出現していないが、今後取る必要があるかもしれない
+(Material_antimony:アンチモン化合物系)
+  -例:ZnSb, ZnSb3, CeFe3CoSb12, LaFe3CoSb12など
+  -出現例:
+  -正規表現:"Sb"
+  -備考:持っている論文には出現していないが、今後取る必要があるかもしれない
+
+・Value
+Temperature (temp)
+  -例:
+  -出現例:570K, 450OC, 650oC
+  -正規表現:[1-9][0-9][0-9]
+  -備考:トークナイズが数字と単位で分かれている場合と、分かれていない場合があるので統一したい。
+  -K表記と℃(oC)の両方の表記がある
+  -1000Kぐらいまでにおさまる
+  -1つ前のトークンが数字でかつ、次のトークンが記号（K, ℃）の時
+Temperature (temp)|PF
+  -例:
+  -出現例:
+  -正規表現
+  -備考:未知、データが少ないため、正規表現でとれない
+PF:power factor/性能指数の一つ
+  -例:
+  -出現例:3.0×10-3Wm-1K-2, 0.30, 1.35×10-3Wm-1K-2
+  -正規表現
+  -備考:Wm とKを含む
+Temperature (temp)|ZT
+  -例:
+  -出現例:Cu12-xNiXSb4S13, CeyCo4Sb12
+  -正規表現
+  -備考:物質？
+ZT:無次元性能指数
+  -例:
+  -出現例:ZT=1.23, 0.16, (1.04&PlusMinus;0.08),
+  -正規表現:ZT=*,
+  -備考:0~2の間の数値
+Thermal conductivity (kapp):熱伝導率
+  -例:
+  -出現例:(k=1.34), (0.48Wm-1K-1), 1.3
+  -正規表現:Wm-1K-1
+  -備考:Wmという単位が含まれるものを取れば良い？
+Electrical conductivity (sigma):電気伝導性
+  -例:
+  -出現例:105, 3×103Sm-1
+  -正規表現:Sm-1
+  -備考:
+Electrical resistivity (rho):電気抵抗率
+  -例:
+  -出現例:
+  -正規表現
+  -備考:
+Seekeck/seebeck:ゼーベック係数
+  -例:
+  -熱によって発電できる能力。単位温度差あたりに発生する電位差(V/K)の単位を持つ
+  -金属では数～10数μV/Kが一般的で、半導体では100～数100μV/Kのオーダーの値をとる。
+  -出現例:
+  -正規表現:[1-9][1-9]μV/K, [1-9]μV/K, [1-9][1-9][1-9]μV/K
+  -備考:
+
+Others ->数字, またはx=数字みたいな書き方のもの
+  -例:
+  -出現例:
+  -正規表現
+  -備考:
+
+・検討事項
+表記揺れがある。同じ物質でも、元素比が整数の場合と少数の場合がある。
+トークンの分割問題
+  -（数値, 単位みたいに区切られているものはreでは取りにくい？）
+  - .や]がきちんと分割されていない。
+
+・物理の人たちへの質問事項
+  -粒度の話。どの元素を優先したタグづけにするのか
+  -分類の優先順位みたいなもの。OxideでもBiが含まれているものがあり、
+  両方の元素が含まれる時、何を基準にTe/BiとOxideカテゴリー分けするのか
+  -定義の確認（すり合わせ）/もしくはどこかに定義が記述されているものがおいてあるか
+
+定義に用いた参考論文など
+http://vlab-nu.jp/assets/files/pdf/materia.pdf
+http://ncrs.cm.kyushu-u.ac.jp/assets/files/Newsletter/volume_3/jp/NCRS_NLJVol3_05MR.pdf
+http://home.hiroshima-u.ac.jp/adsmmag/pdf/topic_takaba.pdf
+http://www.furukawakk.co.jp/info/archive/2008/080820_release.html
+http://data.nistep.go.jp/dspace/bitstream/11035/1977/1/NISTEP-STT090-20.pdf
