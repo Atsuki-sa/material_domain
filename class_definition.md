@@ -8,6 +8,7 @@
 
 物質の比率が異なる記述方法がある
 
+
 **Material_Te/Bi:テルル-ビスマス化合物系**
 
 ・主としてTe, Beが含まれる
@@ -18,6 +19,7 @@
 
 ・備考
 
+
 **Material_Oxide:酸素物系**
 
 ・例:SrTiO3, NaCo2, Ca3Co4O9, ZnO
@@ -27,6 +29,7 @@
 ・正規表現:
 
 ・備考: Oだけでは判別しにくい/専門知識の欠如による判定の難しさ
+
 
 **Material_Clathrate:包接化合物**
 
@@ -40,6 +43,7 @@
 
 ・正規表現: 
 
+
 **Material_Skutterudite:スクッテルダイト系化合物**
 
 ・例:CoSb3, NiAs3, CoAs3など。
@@ -52,6 +56,7 @@
 
 ・正規表現: 
 
+
 **Material_Heusler-based_phase:ホイスラーに基づく位相**
 
 ・出現例:Fe2V0.9W0.1A1
@@ -60,14 +65,17 @@
 
 ・備考: 出現例が上記のみのため、分類が難しい。
 
+
 **Material_silicides:シリコン化合物**
 
 例:SiGe, β-FeSi2, Ba8Si48, Mg2Si, MnSi1.73など
 
 出現例: 
 
+
 **Material_Other:その他**
 
 出現例:In4PbχSnySe3, Cu12-xNiXSb4S13
+
 
 # Value
