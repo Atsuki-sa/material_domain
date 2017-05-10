@@ -55,7 +55,7 @@
 
 **Material_silicides:シリコン化合物**
 
-説明: 
+説明: シリコン(Si)を含む化合物
 
 例:SiGe, β-FeSi2, Ba8Si48, Mg2Si, MnSi1.73など
 
@@ -63,7 +63,7 @@
 
 **Material_Other:その他**
 
-説明: 
+説明: そのほかの材料・化合物
 
 出現例:In4PbχSnySe3, Cu12-xNiXSb4S13
 
