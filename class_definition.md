@@ -20,7 +20,7 @@
 
 **Material_Oxide:酸素物系**
 
-・説明: 酸素(Oxide)を含む材料。
+・説明: 酸素(Oxygen)を含む材料。
 
 ・例:SrTiO3, NaCo2, Ca3Co4O9, ZnO,In4-xGaxSn3O12, Ca3-xBixCo4O9+δ(x=0.5), NaXCo2O4
 
