@@ -189,7 +189,7 @@ F-score: 0.25
 
 **Electrical resistivity (rho):電気抵抗率**
 
-現状収集していない
+現状収集していない(出現がほとんどなく、記述できない)
 
 
 **Seekeck/seebeck:ゼーベック係数**
