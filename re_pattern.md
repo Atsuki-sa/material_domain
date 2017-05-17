@@ -2,6 +2,17 @@
 
 # Material
 
+###
+|Class|TP|FP|FN|Prsicion|Recall|
+|-----------|-----------|-----------|-----------|-----------|-----------|
+|Material_Te/Bi|46|1216|0|0.04|1.00|
+|Material_Oxide|14|297|0|0.04|1.00|
+|Material_Clathrate|2|6|0|0.25|1.00|
+|Material_Skutterudite|7|54|0|0.11|1.00|
+|Material_Oxide|1|60|0|0.02|1.00|
+|Material_Oxide|13|28|0|0.06|1.00|
+###
+
 **Material_Te/Bi**
 
 ^Bi.*?Te|^[A-Z][a-z].*?[0-9]Te[0-9]|^[A-Z][a-z].*?[0-9]Bi[0-9]|Ag[A-z].*?|Ag.*?[0-9]|.*?BiTe|Bi[0-9].*?
